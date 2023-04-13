@@ -25,6 +25,15 @@ def sort_array_item(array)
   end
 end
 
+def control(num1,num2)
+  if num1 < num2 
+    next
+  elsif num1 == num2
+    next
+  elsif num1 > num2
+
+  end
+
 
 
 p bubble_sort(array)
