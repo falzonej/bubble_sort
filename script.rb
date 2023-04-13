@@ -25,16 +25,26 @@ def sort_array_item(array)
   end
 end
 
-def control(num1,num2)
-  if num1 < num2 
-    next
-  elsif num1 == num2
-    next
-  elsif num1 > num2
 
-  end
+def switch_arr_index(array,num1,num2)
+  num1_index = array.find_index(num1)
+  num2_index = array.find_index(num2)
+  array[num1_index] = num2 
+  array[num2_index] = num1
+  array
+end
+
+# def control(array,num1,num2)
+#   if num1 < num2 
+#     next
+#   elsif num1 == num2
+#     next
+#   elsif num1 > num2
+#     switch_arr_index(array,num1,num2)
+#   end
+# end
 
 
-
-p bubble_sort(array)
+p switch_arr_index(array,4,7)
+#p bubble_sort(array)
 #p sort_array_item(array)
