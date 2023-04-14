@@ -16,12 +16,7 @@ def sort_array_item(array)
   array.each do |num|
     curr_num = array.find_index(num)
     next_num = curr_num + 1
-    if array[curr_num] > array[next_num]
-      array[curr_num], array[next_num] = array[next_num], array[curr_num]
-      return array
-    else 
-      next
-    end
+    control(array, curr_num, next_num)
   end
 end
 
@@ -34,17 +29,20 @@ def switch_arr_index(array,num1,num2)
   array
 end
 
-# def control(array,num1,num2)
-#   if num1 < num2 
-#     next
-#   elsif num1 == num2
-#     next
-#   elsif num1 > num2
-#     switch_arr_index(array,num1,num2)
-#   end
-# end
+def control(array,num1,num2)
+  if num1 < num2 
+    p 1
+    next
+  elsif num1 == num2
+    p 2
+    next
+  elsif num1 > num2
+    return switch_arr_index(array,num1,num2)
+  end
+end
 
 
-p switch_arr_index(array,4,7)
+# p control(array,7,2)
+# p switch_arr_index(array,4,7)
 #p bubble_sort(array)
 #p sort_array_item(array)
