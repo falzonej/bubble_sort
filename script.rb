@@ -1,25 +1,35 @@
-array = [4,7,2,3,4,1]
+require 'pry'
 
-
+array = [4,2,7,3,1,4]
 
 
 def bubble_sort(array)
-  input_array = array
-  until input_array[0] == array.min()
-    input_array = sort_array_item(input_array)
-    p input_array
+  output_array = array
+  until array[0] == array.min() || array[-1] == array.max() do
+    output_array = sort_array(array)
   end
-  return input_array
+  output_array
 end
 
-def sort_array_item(array)
+
+def sort_array(array)
   array.each do |num|
     curr_num = array.find_index(num)
     next_num = curr_num + 1
-    control(array, curr_num, next_num)
+    control(array, array[curr_num], array[next_num])
+    # binding.pry
   end
 end
 
+def control(array,num1,num2)
+  if num1 < num2 
+    return
+  elsif num1 == num2
+    return
+  elsif num1 > num2
+    return switch_arr_index(array,num1,num2)
+  end
+end
 
 def switch_arr_index(array,num1,num2)
   num1_index = array.find_index(num1)
@@ -29,20 +39,9 @@ def switch_arr_index(array,num1,num2)
   array
 end
 
-def control(array,num1,num2)
-  if num1 < num2 
-    p 1
-    next
-  elsif num1 == num2
-    p 2
-    next
-  elsif num1 > num2
-    return switch_arr_index(array,num1,num2)
-  end
-end
 
 
-# p control(array,7,2)
-# p switch_arr_index(array,4,7)
-#p bubble_sort(array)
-#p sort_array_item(array)
+#p control(array,7,2)
+#p switch_arr_index(array,4,7)
+#p sort_array(array)
+p bubble_sort(array)
