@@ -5,7 +5,7 @@ array = [4,7,2,7,1,5]
 
 def bubble_sort(array)
   output_array = array
-  until array[0] == array.min()  do
+  until array[0] == array.min()  && array[-1] == array.max() do
     output_array = sort_array(array)
   end
   output_array
@@ -22,13 +22,15 @@ def sort_array(array)
 end
 
 def control(array,num1,num2)
-binding.pry
+# binding.pry
   if num2 == nil
     return
   elsif num1 < num2 
     return
   elsif num1 == num2
-    switch_arr_index(array,num1,num2)
+    curr_num = array.find_index(num1)
+    next_num = curr_num + 1
+    control(array, array[curr_num], array[next_num+1])
   elsif num1 > num2
     switch_arr_index(array,num1,num2) 
   end
